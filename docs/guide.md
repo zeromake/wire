@@ -540,12 +540,12 @@ func main() {
 func NewRouter() *Mux {
 	panic(
 		wire.Build(
-			InitRouter,
 			wire.Slice(
 				[]Controller(nil),
 				NewHome,
 				NewUpload,
 			),
+			InitRouter,
 		),
 	)
 }
@@ -572,7 +572,6 @@ func NewRouter() *Mux {
 func NewRouter() *Mux {
 	panic(
 		wire.Build(
-			InitRouter,
 			wire.Slice(
 				[]Controller(nil),
 				wire.NewSet(
@@ -580,6 +579,7 @@ func NewRouter() *Mux {
 					NewUpload,
 				),
 			),
+			InitRouter,
 		),
 	)
 }
@@ -606,13 +606,13 @@ func NewRouter() *Mux {
 func NewRouter() *Mux {
 	panic(
 		wire.Build(
-			InitRouter,
 			wire.Slice(
 				[]Controller(nil),
 				wire.Value(&HomeController{}),
 				wire.Struct(new(UploadController), "*"),
 				wire.Struct(new(DocController), "*"),
 			),
+			InitRouter,
 		),
 	)
 }

@@ -9,11 +9,11 @@ import (
 func NewRouter() *Mux {
 	panic(
 		wire.Build(
-			InitRouter,
 			wire.Slice(
 				[]Controller(nil),
 				Set,
 			),
+			InitRouter,
 		),
 	)
 }

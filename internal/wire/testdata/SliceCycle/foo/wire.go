@@ -9,13 +9,13 @@ import (
 func NewRouter() *Mux {
 	panic(
 		wire.Build(
-			InitRouter,
-			NewRouterService,
 			wire.Slice(
 				[]Controller(nil),
 				NewHome,
 				NewUpload,
 			),
+			InitRouter,
+			NewRouterService,
 		),
 	)
 }
